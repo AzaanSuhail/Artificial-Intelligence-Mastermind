@@ -1,0 +1,10 @@
+* Models/ Api key : [Bytez - open source AI](https://bytez.com/?utm_source=sp_auto_dm&utm_referrer=sp_auto_dm)
+* Public Api’s : [https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis)
+* [Best GenAI Repo 1 ](https://github.com/microsoft/generative-ai-for-beginners?utm_source=chatgpt.com)
+* [Best GenAI Repo 2](https://github.com/steven2358/awesome-generative-ai?utm_source=chatgpt.com)
+* [ashishps1/learn-ai-engineering: Learn AI and LLMs from scratch using free resources](https://github.com/ashishps1/learn-ai-engineering?utm_source=chatgpt.com)
+* [LangGraph Official Course]( [Foundation: Introduction to LangGraph - LangChain Academy](https://academy.langchain.com/courses/take/intro-to-langgraph/lessons/58238107-course-overview))
+* Alternatinve of LangChains  are :
+* [Welcome to LlamaIndex 🦙 ! | LlamaIndex Python Documentation](https://developers.llamaindex.ai/python/framework/)
+* [Introduction to Haystack | Haystack Documentation](https://docs.haystack.deepset.ai/docs/intro)
+* [Projects ](https://github.com/shubhamprajapati7748/My-AI-Projects-Gallery?tab=readme-ov-file)

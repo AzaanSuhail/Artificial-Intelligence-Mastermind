@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "name": "Rahul Sharma",
+    "age": 28,
+    "gender": "Male",
+    "height_cm": 175,
+    "weight_kg": 72,
+    "bmi": 23.5,
+    "disease": "None",
+    "blood_group": "B+",
+    "heart_rate": 72,
+    "smoker": false
+  },
+  {
+    "id": 2,
+    "name": "Ananya Verma",
+    "age": 34,
+    "gender": "Female",
+    "height_cm": 162,
+    "weight_kg": 68,
+    "bmi": 25.9,
+    "disease": "Hypothyroidism",
+    "blood_group": "O+",
+    "heart_rate": 78,
+    "smoker": false
+  },
+  {
+    "id": 3,
+    "name": "Mohit Singh",
+    "age": 45,
+    "gender": "Male",
+    "height_cm": 170,
+    "weight_kg": 85,
+    "bmi": 29.4,
+    "disease": "Type 2 Diabetes",
+    "blood_group": "A+",
+    "heart_rate": 82,
+    "smoker": true
+  },
+  {
+    "id": 4,
+    "name": "Priya Nair",
+    "age": 29,
+    "gender": "Female",
+    "height_cm": 158,
+    "weight_kg": 54,
+    "bmi": 21.6,
+    "disease": "Anemia",
+    "blood_group": "AB+",
+    "heart_rate": 76,
+    "smoker": false
+  },
+  {
+    "id": 5,
+    "name": "Amit Patel",
+    "age": 52,
+    "gender": "Male",
+    "height_cm": 168,
+    "weight_kg": 90,
+    "bmi": 31.9,
+    "disease": "Hypertension",
+    "blood_group": "O-",
+    "heart_rate": 88,
+    "smoker": true
+  },
+  {
+    "id": 6,
+    "name": "Sneha Kulkarni",
+    "age": 41,
+    "gender": "Female",
+    "height_cm": 165,
+    "weight_kg": 62,
+    "bmi": 22.8,
+    "disease": "Asthma",
+    "blood_group": "A-",
+    "heart_rate": 74,
+    "smoker": false
+  }
+]
