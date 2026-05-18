@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ML & DL Visualization Resource Guide — @_alaap_dhall_</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --brand-primary: #0A1628;
+    --brand-accent:  #00C896;
+    --white:         #F4F8FF;
+    --mid:           #1E3A5F;
+    --grid:          rgba(0,200,150,0.06);
+    --muted:         #8BA5C0;
+    --card-bg:       rgba(30,58,95,0.45);
+    --card-border:   rgba(0,200,150,0.18);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: #080808;
+    font-family: 'Inter', sans-serif;
+    color: var(--white);
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background-color: var(--brand-primary);
+    background-image:
+      repeating-linear-gradient(0deg,  transparent, transparent 59px, var(--grid) 60px),
+      repeating-linear-gradient(90deg, transparent, transparent 59px, var(--grid) 60px);
+    background-size: 60px 60px;
+    padding: 72px 48px 56px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0,200,150,0.15);
+  }
+  .hero-deco {
+    position: absolute; border-radius: 50%;
+    background: var(--brand-accent); opacity: 0.06;
+    width: 500px; height: 500px; top: -160px; right: -120px;
+    pointer-events: none;
+  }
+  .hero-deco2 {
+    position: absolute; border-radius: 50%;
+    background: var(--brand-accent); opacity: 0.03;
+    width: 300px; height: 300px; bottom: -100px; left: 60px;
+    pointer-events: none;
+  }
+  .hero-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px; font-weight: 700;
+    color: var(--brand-accent);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero-title {
+    font-weight: 900; font-size: clamp(40px, 6vw, 80px);
+    line-height: 1.05; text-transform: uppercase;
+    letter-spacing: -0.02em; margin-bottom: 20px;
+    max-width: 960px;
+  }
+  .hero-title em { color: var(--brand-accent); font-style: normal; }
+  .hero-sub {
+    font-size: 18px; color: var(--muted);
+    line-height: 1.6; max-width: 720px; margin-bottom: 32px;
+  }
+  .hero-sub strong { color: var(--white); }
+  .hero-handle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px; color: var(--brand-accent); font-weight: 700;
+  }
+  .stat-row {
+    display: flex; gap: 16px; flex-wrap: wrap; margin-top: 36px;
+  }
+  .stat-box {
+    background: rgba(0,200,150,0.09);
+    border: 1px solid rgba(0,200,150,0.28);
+    border-radius: 8px; padding: 14px 24px; text-align: center;
+  }
+  .stat-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 30px; font-weight: 800; color: var(--brand-accent);
+    display: block;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* ── LAYOUT ── */
+  .page-wrap {
+    max-width: 1100px; margin: 0 auto; padding: 56px 32px 80px;
+  }
+
+  /* ── HOW TO USE THIS GUIDE ── */
+  .guide-banner {
+    background: rgba(0,200,150,0.07);
+    border: 1px solid rgba(0,200,150,0.22);
+    border-left: 4px solid var(--brand-accent);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 56px;
+  }
+  .guide-banner h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; font-weight: 700; color: var(--brand-accent);
+    letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px;
+  }
+  .guide-steps { display: flex; flex-direction: column; gap: 10px; }
+  .guide-step {
+    display: flex; gap: 14px; align-items: flex-start;
+    font-size: 15px; line-height: 1.55; color: var(--muted);
+  }
+  .guide-step strong { color: var(--white); }
+  .step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; font-weight: 800; color: var(--brand-accent);
+    min-width: 28px; padding-top: 1px;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 56px; }
+  .section-header {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 6px;
+  }
+  .section-badge {
+    display: inline-block;
+    background: var(--brand-accent);
+    color: var(--brand-primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 0.06em;
+    padding: 5px 14px;
+    border-radius: 4px 10px 4px 10px;
+    transform: rotate(-1deg);
+    white-space: nowrap;
+  }
+  .section-title {
+    font-weight: 900; font-size: 26px;
+    letter-spacing: -0.01em;
+  }
+  .section-desc {
+    font-size: 14px; color: var(--muted);
+    line-height: 1.6; margin-bottom: 24px;
+    max-width: 720px; margin-top: 6px;
+  }
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0,200,150,0.25), transparent);
+    margin-bottom: 24px;
+  }
+
+  /* ── RESOURCE CARD ── */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+  }
+  .resource-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-left: 4px solid var(--brand-accent);
+    border-radius: 10px;
+    padding: 22px 24px;
+    transition: border-color 0.2s, background 0.2s;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .resource-card:hover {
+    border-color: rgba(0,200,150,0.45);
+    background: rgba(30,58,95,0.65);
+  }
+  .resource-card.wide {
+    grid-column: 1 / -1;
+  }
+  .card-top {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+  }
+  .card-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 800; color: var(--brand-accent);
+    min-width: 26px;
+  }
+  .card-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px; font-weight: 700; color: var(--white);
+    flex: 1; line-height: 1.35;
+  }
+  .card-link-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--brand-accent);
+    color: var(--brand-primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 800;
+    padding: 5px 12px; border-radius: 6px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+  }
+  .card-link-btn:hover { opacity: 0.82; }
+  .card-link-btn.gh {
+    background: transparent;
+    border: 1px solid rgba(0,200,150,0.45);
+    color: var(--brand-accent);
+  }
+  .card-link-btn.gh:hover { background: rgba(0,200,150,0.1); opacity: 1; }
+  .card-tagline {
+    font-size: 13px; color: var(--muted); line-height: 1.5;
+    font-style: italic;
+  }
+  .card-body {
+    font-size: 13.5px; color: rgba(244,248,255,0.78);
+    line-height: 1.6;
+  }
+  .card-body strong { color: var(--white); }
+  .card-use-case {
+    background: rgba(0,200,150,0.07);
+    border: 1px solid rgba(0,200,150,0.16);
+    border-radius: 6px; padding: 10px 14px;
+  }
+  .use-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 800; color: var(--brand-accent);
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;
+  }
+  .use-text {
+    font-size: 12.5px; color: var(--muted); line-height: 1.5;
+  }
+
+  /* ── TOPIC TAGS ── */
+  .card-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 700;
+    padding: 3px 9px; border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+  .tag-nn   { background: rgba(0,200,150,0.12); color: var(--brand-accent); border: 1px solid rgba(0,200,150,0.25); }
+  .tag-llm  { background: rgba(100,120,255,0.12); color: #A0AAFF; border: 1px solid rgba(100,120,255,0.25); }
+  .tag-cnn  { background: rgba(255,160,60,0.12); color: #FFBE80; border: 1px solid rgba(255,160,60,0.25); }
+  .tag-math { background: rgba(220,80,160,0.12); color: #F0A0D8; border: 1px solid rgba(220,80,160,0.25); }
+  .tag-gan  { background: rgba(60,210,255,0.12); color: #90E4FF; border: 1px solid rgba(60,210,255,0.25); }
+  .tag-diff { background: rgba(255,100,100,0.12); color: #FFAAAA; border: 1px solid rgba(255,100,100,0.25); }
+  .tag-repo { background: rgba(160,200,80,0.12); color: #C0E080; border: 1px solid rgba(160,200,80,0.25); }
+  .tag-viz  { background: rgba(255,200,50,0.12); color: #FFD888; border: 1px solid rgba(255,200,50,0.25); }
+
+  /* ── LINK ROW (two buttons) ── */
+  .card-link-row {
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+
+  /* ── PEOPLE / CREATORS GRID ── */
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+  }
+  .person-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 10px; padding: 20px 22px;
+    transition: border-color 0.2s;
+  }
+  .person-card:hover { border-color: rgba(0,200,150,0.4); }
+  .person-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px; font-weight: 700; color: var(--white);
+    margin-bottom: 5px;
+  }
+  .person-handle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: var(--brand-accent); margin-bottom: 10px;
+  }
+  .person-bio { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+  .person-link {
+    display: inline-block; margin-top: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--brand-accent);
+    text-decoration: none; font-weight: 700;
+  }
+  .person-link:hover { text-decoration: underline; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--brand-primary);
+    border-top: 1px solid rgba(0,200,150,0.12);
+    padding: 40px 48px;
+    text-align: center;
+  }
+  .footer-handle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px; color: var(--brand-accent); font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .footer-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; color: var(--mid);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .hero { padding: 48px 24px 40px; }
+    .page-wrap { padding: 40px 20px 60px; }
+    .resource-grid { grid-template-columns: 1fr; }
+    .people-grid { grid-template-columns: 1fr; }
+    .stat-row { gap: 10px; }
+    .stat-box { padding: 10px 16px; }
+    .stat-num { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-deco2"></div>
+  <div class="hero-label">// ML &amp; DL Visualization — Your Complete Reference</div>
+  <h1 class="hero-title"><em>25+</em> ML &amp; DL<br/>Visualization Resources</h1>
+  <p class="hero-sub">
+    The exact stack to go from <strong>reading papers → actually understanding them.</strong><br/>
+    Every resource below is clickable, curated, and includes exactly what it covers and how to get the most from it.
+  </p>
+  <div class="hero-handle">@_alaap_dhall_</div>
+  <div class="stat-row">
+    <div class="stat-box"><span class="stat-num">25+</span><div class="stat-label">Total Resources</div></div>
+    <div class="stat-box"><span class="stat-num">8</span><div class="stat-label">GitHub Repos</div></div>
+    <div class="stat-box"><span class="stat-num">6</span><div class="stat-label">Interactive Tools</div></div>
+    <div class="stat-box"><span class="stat-num">5</span><div class="stat-label">Visual Essays</div></div>
+    <div class="stat-box"><span class="stat-num">4</span><div class="stat-label">Creators to Follow</div></div>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+  <!-- ═══════════════════════════════════════
+       HOW TO USE THIS GUIDE
+  ═══════════════════════════════════════ -->
+  <div class="guide-banner">
+    <h2>// How to Walk Through This Guide</h2>
+    <div class="guide-steps">
+      <div class="guide-step">
+        <span class="step-num">01</span>
+        <span><strong>Start with TF Playground and Interactive ML</strong> — these are zero-install, run in your browser right now. Build a feel for how neural nets, loss surfaces, and classifiers behave before reading anything deeper.</span>
+      </div>
+      <div class="guide-step">
+        <span class="step-num">02</span>
+        <span><strong>Move to the Poloclub explainers</strong> — CNN Explainer, Transformer Explainer, and Diffusion Explainer each run a live model in your browser. They are the fastest way to truly internalize how these architectures work.</span>
+      </div>
+      <div class="guide-step">
+        <span class="step-num">03</span>
+        <span><strong>Read the Distill.pub articles</strong> for the concepts that still feel fuzzy. They are peer-reviewed, interactive, and written by the same researchers who built the models — nothing else comes close for depth.</span>
+      </div>
+      <div class="guide-step">
+        <span class="step-num">04</span>
+        <span><strong>Star the GitHub repos</strong> — ML-Tokyo/Interactive_Tools is the master list. Reference it whenever you are about to build something from scratch that someone has already visualized.</span>
+      </div>
+      <div class="guide-step">
+        <span class="step-num">05</span>
+        <span><strong>Follow the creators listed at the bottom</strong> — Jay Alammar, Andrej Karpathy, and Chris Olah produce the highest signal-to-noise content in the entire ML education space. Even one post per week from them is worth more than most courses.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 1 — NEURAL NETWORK FUNDAMENTALS
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-badge">🧠 Foundations</div>
+      <div class="section-title">5 Tools for Neural Network Intuition</div>
+    </div>
+    <p class="section-desc">These are your first stops. Run them before reading any theory. Watching a neural network learn in real time gives you intuition that no amount of textbook reading can replicate. All browser-based, zero install.</p>
+    <div class="divider"></div>
+    <div class="resource-grid">
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">01</span>
+          <span class="card-name">TensorFlow Playground</span>
+          <a href="https://playground.tensorflow.org/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-nn">Neural Nets</span>
+          <span class="tag tag-viz">Interactive</span>
+        </div>
+        <div class="card-tagline">Draw your own dataset. Watch a network learn it in real time.</div>
+        <div class="card-body">
+          The canonical starting point for understanding neural networks. You pick the dataset (spirals, circles, XOR, Gaussian), define the architecture (layers, neurons, activation), set the learning rate and regularization — then hit play and watch the decision boundary form epoch by epoch.
+          <br/><br/>
+          <strong>How to use it:</strong> Try to classify the spiral dataset with one hidden layer and watch it fail. Then add layers and watch it succeed. That failure-then-success experience is the intuition for why depth matters.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Building raw intuition for activation functions, overfitting, depth vs width, and why regularization exists — before reading a single equation.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">02</span>
+          <span class="card-name">Interactive ML Platform</span>
+          <a href="https://www.interactive-ml.com/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-nn">Neural Nets</span>
+          <span class="tag tag-math">Math</span>
+          <span class="tag tag-viz">Interactive</span>
+        </div>
+        <div class="card-tagline">30+ live demos covering the full ML curriculum — sliders everywhere.</div>
+        <div class="card-body">
+          The most comprehensive single site for hands-on ML learning. Covers linear regression, logistic regression, regularization, decision trees, SVMs, k-means, DBSCAN, gradient descent on 3D loss surfaces, bias–variance tradeoff, ROC curves, PCA, k-fold cross validation, confusion matrices, and more. Every topic has live sliders and animated feedback.
+          <br/><br/>
+          <strong>How to use it:</strong> Use this as a companion while studying. When a concept feels abstract, come here and interact with it for 5 minutes. The gradient descent 3D surface visualization alone is worth the bookmark.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">ML practitioners studying or revising the classic algorithms — this is the interactive companion to any ML textbook or course.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">03</span>
+          <span class="card-name">A Visual Intro to Machine Learning (R2D3)</span>
+          <a href="https://r2d3.us/visual-intro-to-machine-learning-part-1/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-math">Probability</span>
+          <span class="tag tag-viz">Scrollytelling</span>
+        </div>
+        <div class="card-tagline">The most beautiful scrollytelling ML explainer ever made.</div>
+        <div class="card-body">
+          A landmark piece of interactive data journalism. As you scroll, animated D3 visualizations explain how decision trees split data and why the bias–variance tradeoff exists — in a way that sticks. Part 1 covers decision trees. Part 2 dives deep into model generalization.
+          <br/><br/>
+          <strong>How to use it:</strong> Read both parts in one sitting. Don't rush — let each animation complete before scrolling. This is the piece that convinces people visual learning is not just aesthetic, it's faster and deeper.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Anyone who has heard the terms "overfitting" and "bias–variance tradeoff" but hasn't truly internalized what they mean geometrically.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">04</span>
+          <span class="card-name">Seeing Theory (Brown Univ.)</span>
+          <a href="https://seeing-theory.brown.edu/bayesian-inference/index.html#section1" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-math">Probability</span>
+          <span class="tag tag-math">Statistics</span>
+          <span class="tag tag-viz">Interactive</span>
+        </div>
+        <div class="card-tagline">Probability and statistics, made visceral and interactive.</div>
+        <div class="card-body">
+          Brown University's visual introduction to probability and statistics. Covers basic probability, compound probability, probability distributions, frequentist inference, Bayesian inference, and regression — all through beautiful, manipulable visualizations. The Bayesian inference chapter is especially relevant for ML practitioners.
+          <br/><br/>
+          <strong>How to use it:</strong> Work through the Bayesian Inference and Regression chapters first if you're an ML engineer. These are the mathematical foundations that explain why probabilistic models behave the way they do.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Engineers who want to understand the probabilistic foundations that underpin Bayesian classifiers, uncertainty estimation, and statistical learning theory.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">05</span>
+          <span class="card-name">ML Visualized (Full Course)</span>
+          <a href="https://ml-visualized.com/chapter3/interactive_perceptron.html" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-nn">Neural Nets</span>
+          <span class="tag tag-viz">Course</span>
+        </div>
+        <div class="card-tagline">A full visual ML course — chapter by chapter, concept by concept.</div>
+        <div class="card-body">
+          A structured interactive course that walks through ML from the ground up, with the perceptron and forward propagation visualized live. Unlike single-topic tools, this is a coherent curriculum — each chapter builds on the previous, and every abstract concept has a paired interactive demo you manipulate directly.
+          <br/><br/>
+          <strong>How to use it:</strong> Start at Chapter 1 and work sequentially. Use the perceptron chapter to confirm your mental model of forward pass, then continue to backprop and beyond.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Self-learners who want a structured curriculum with visuals built in — not just isolated demos but a coherent learning path from perceptron to deeper networks.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 2 — CNNs
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-badge">🖼️ Computer Vision</div>
+      <div class="section-title">3 Tools to Understand CNNs Deeply</div>
+    </div>
+    <p class="section-desc">Convolutional networks are notoriously hard to build intuition for — until you watch the kernels slide and the feature maps activate. These tools make the whole thing click in minutes.</p>
+    <div class="divider"></div>
+    <div class="resource-grid">
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">C1</span>
+          <span class="card-name">CNN Explainer (Poloclub)</span>
+          <a href="https://poloclub.github.io/cnn-explainer/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-cnn">CNN</span>
+          <span class="tag tag-viz">Live Model</span>
+          <span class="tag tag-repo">Open Source</span>
+        </div>
+        <div class="card-tagline">Upload an image. Watch it flow through a live CNN — kernel by kernel.</div>
+        <div class="card-body">
+          A live TinyVGG CNN runs in your browser. You upload an image and watch it pass through convolution layers, activation functions, pooling, and finally softmax — with animated kernel slides showing the exact dot-product operation at each step. Click any neuron to expand it and see its activation computed live.
+          <br/><br/>
+          <strong>How to use it:</strong> First, watch the default image flow through. Then upload something unusual — a face, a meme — and notice which feature maps activate. Click the intermediate neurons to expand the convolution math. This is where "I know how CNNs work" becomes "I've seen how CNNs work."
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Anyone who has read about convolutions but still isn't 100% sure what a feature map actually contains or why pooling helps. This closes that gap in one session.</div>
+        </div>
+        <div class="card-link-row">
+          <a href="https://github.com/poloclub/cnn-explainer" target="_blank" class="card-link-btn gh">⎇ GitHub Repo</a>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">C2</span>
+          <span class="card-name">Feature Visualization (Distill)</span>
+          <a href="https://distill.pub/2017/feature-visualization/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-cnn">CNN</span>
+          <span class="tag tag-viz">Research</span>
+        </div>
+        <div class="card-tagline">What does a neuron in a neural network actually look for?</div>
+        <div class="card-body">
+          Distill's landmark interactive article on feature visualization — the technique of finding the input image that maximally activates a given neuron. You can explore what each layer of a trained network is actually detecting, from simple edges in early layers to complex textures and object parts in deeper layers.
+          <br/><br/>
+          <strong>How to use it:</strong> Read the article fully — don't skip to the visualizations. The methodology section explains why naive feature visualization fails, and the techniques section shows how researchers actually get interpretable results. Then explore the interactive neuron grids.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">ML engineers who want to understand interpretability at the neuron level — essential context for any work in model debugging, explainability, or computer vision research.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">C3</span>
+          <span class="card-name">Activation Atlas (OpenAI + Distill)</span>
+          <a href="https://distill.pub/2019/activation-atlas/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-cnn">CNN</span>
+          <span class="tag tag-viz">Research</span>
+        </div>
+        <div class="card-tagline">A global map of what an entire vision network has learned.</div>
+        <div class="card-body">
+          By running feature visualization on millions of activations across an InceptionV1 network, Distill and OpenAI created a browsable "atlas" of every concept the network has encoded. You can zoom into regions representing curves, textures, animal parts, objects — and see how the network's concept space is organized.
+          <br/><br/>
+          <strong>How to use it:</strong> Click through the interactive atlas and explore the high-confidence regions. This gives you the highest-level view of what it means for a network to "understand" visual concepts — it's not a lookup table, it's a continuous learned space.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Senior ML engineers and researchers interested in model interpretability, neural network internals, and the frontier of mechanistic understanding of deep vision models.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 3 — TRANSFORMERS & LLMs
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-badge">🤖 Transformers</div>
+      <div class="section-title">4 Tools to Master the Transformer Architecture</div>
+    </div>
+    <p class="section-desc">Transformers are the architecture behind every frontier LLM. These tools take you from "I've read Attention is All You Need" to actually watching Q·K·V compute, attention heads activate, and logits emerge — live in your browser.</p>
+    <div class="divider"></div>
+    <div class="resource-grid">
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">T1</span>
+          <span class="card-name">Transformer Explainer (Poloclub)</span>
+          <a href="https://poloclub.github.io/transformer-explainer/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-llm">LLM</span>
+          <span class="tag tag-viz">Live Model</span>
+          <span class="tag tag-repo">Open Source</span>
+        </div>
+        <div class="card-tagline">A live GPT-2 runs in your browser. Type text. Watch the math happen.</div>
+        <div class="card-body">
+          GPT-2 (small, 124M params) runs entirely client-side via ONNX Runtime. Type your own prompt and watch each token flow through: embedding → positional encoding → 12 transformer blocks (each with multi-head attention + MLP) → softmax → next token. Every numerical value updates live. Expand any attention head to see the Q·K·V computation. Adjust temperature and watch how the output distribution changes.
+          <br/><br/>
+          <strong>How to use it:</strong> Type a short prompt and pause at each layer to read the tooltip. Expand one attention head and trace how a single token attends to others. Then change the temperature from 0.1 to 2.0 and compare the probability distributions — this is the fastest way to internalize what temperature actually does.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">AI engineers who understand the concept of transformers but want to see the actual computational flow — tokens, weights, and probabilities — rather than just a diagram of boxes and arrows.</div>
+        </div>
+        <div class="card-link-row">
+          <a href="https://github.com/poloclub/transformer-explainer" target="_blank" class="card-link-btn gh">⎇ GitHub Repo</a>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">T2</span>
+          <span class="card-name">LLM Visualization (bbycroft)</span>
+          <a href="https://bbycroft.net/llm" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-llm">LLM</span>
+          <span class="tag tag-viz">3D Interactive</span>
+        </div>
+        <div class="card-tagline">A 3D walkthrough of every weight matrix in a GPT-style LLM.</div>
+        <div class="card-body">
+          An incredibly detailed 3D interactive visualization of a full GPT-nano architecture. You can step through every operation — token embedding, positional encoding, layer norms, attention (QKV projections, softmax, output), residual streams, MLP (GELU activation), and unembedding — with the actual matrix dimensions and a running explanation. One of the most impressive educational visualizations in the ML space.
+          <br/><br/>
+          <strong>How to use it:</strong> Use the step-through mode to advance one operation at a time. Read the sidebar explanation alongside each step. This is the visualization that makes "residual stream" click — you literally watch the vector being modified at each layer.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Engineers preparing for senior AI interviews, LLM systems design work, or anyone studying mechanistic interpretability — the residual stream view is uniquely valuable here.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">T3</span>
+          <span class="card-name">The Illustrated Transformer (Jay Alammar)</span>
+          <a href="https://jalammar.github.io/illustrated-transformer/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-llm">LLM</span>
+          <span class="tag tag-viz">Visual Essay</span>
+        </div>
+        <div class="card-tagline">The foundational visual essay on how the Transformer works. Read by millions.</div>
+        <div class="card-body">
+          Jay Alammar's illustrated deep dive into the Transformer from the original "Attention is All You Need" paper. Covers self-attention, multi-head attention, positional encoding, encoder–decoder architecture, and how the full model processes sequences — entirely through custom hand-drawn animated diagrams. This is the reference that Stanford, MIT, and CMU direct their students to.
+          <br/><br/>
+          <strong>How to use it:</strong> Read this before the interactive tools — it gives you the conceptual scaffold. Then revisit after using Transformer Explainer and bbycroft's viz to confirm your understanding clicked. Also read his Illustrated GPT-2 and Illustrated BERT posts afterward.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">The go-to pre-reading before any transformer implementation project, LLM course, or system design interview involving attention-based architectures.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">T4</span>
+          <span class="card-name">Transformer Circuits (Anthropic)</span>
+          <a href="https://transformer-circuits.pub/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-llm">LLM</span>
+          <span class="tag tag-viz">Research</span>
+        </div>
+        <div class="card-tagline">Anthropic's research thread on reverse-engineering transformers as algorithms.</div>
+        <div class="card-body">
+          The living research hub from Anthropic's interpretability team. Articles explore mechanistic interpretability — the project of understanding transformers not as black boxes but as explicit algorithms with identifiable circuits. Includes interactive pieces on induction heads, attention patterns, superposition, and features as geometric structures in activation space.
+          <br/><br/>
+          <strong>How to use it:</strong> Start with the "A Mathematical Framework for Transformer Circuits" and "In-Context Learning and Induction Heads." These are technically dense — treat them like research papers, not tutorials. Extremely high-value for AI engineers interested in what's happening inside frontier models.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Senior AI engineers, researchers, and anyone serious about model interpretability, safety, or building genuine mechanistic understanding of LLMs beyond the surface-level architectural description.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 4 — GENERATIVE MODELS
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-badge">🎨 Generative AI</div>
+      <div class="section-title">3 Tools for GANs &amp; Diffusion</div>
+    </div>
+    <p class="section-desc">Generative models are among the hardest to build intuition for — the training dynamics of GANs and the denoising process of diffusion models are genuinely counter-intuitive. These tools make them observable.</p>
+    <div class="divider"></div>
+    <div class="resource-grid">
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">G1</span>
+          <span class="card-name">GAN Lab (Poloclub)</span>
+          <a href="https://poloclub.github.io/ganlab/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-gan">GAN</span>
+          <span class="tag tag-viz">Live Model</span>
+          <span class="tag tag-repo">Open Source</span>
+        </div>
+        <div class="card-tagline">Watch a generator and discriminator battle in real time — on data you draw.</div>
+        <div class="card-body">
+          Draw your own 2D data distribution, then watch a miniature GAN train live in the browser. You can see the generator's distribution evolve to match yours, the discriminator's decision boundary shift, and the training loss curves update in real time. Supports pausing, stepping one iteration at a time, and experimenting with learning rates and architectures.
+          <br/><br/>
+          <strong>How to use it:</strong> Start with the default ring dataset. Pause training every few hundred steps and inspect what the generator has learned. Then draw a difficult distribution (a star, disconnected clusters) and watch mode collapse happen. This single experience explains mode collapse better than any lecture.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Anyone trying to understand GAN training dynamics, mode collapse, and why training stability is so difficult — in a hands-on way rather than through loss curve post-mortems.</div>
+        </div>
+        <div class="card-link-row">
+          <a href="https://github.com/poloclub/ganlab" target="_blank" class="card-link-btn gh">⎇ GitHub Repo</a>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">G2</span>
+          <span class="card-name">Diffusion Explainer (Poloclub)</span>
+          <a href="https://poloclub.github.io/diffusion-explainer/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-diff">Diffusion</span>
+          <span class="tag tag-viz">Interactive</span>
+          <span class="tag tag-repo">Open Source</span>
+        </div>
+        <div class="card-tagline">How Stable Diffusion turns a text prompt into an image — visualized step by step.</div>
+        <div class="card-body">
+          An interactive walkthrough of the full Stable Diffusion pipeline: text encoding via CLIP, the forward noising process, U-Net architecture for denoising, and how classifier-free guidance steers generation. You can watch the denoising happen step by step and see how the latent representation evolves from pure noise to a structured image.
+          <br/><br/>
+          <strong>How to use it:</strong> Step through each denoising iteration slowly and note how the image structure emerges. Then change the guidance scale and compare — this is the fastest way to understand what CFG actually does to the generation process.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">AI engineers working with or fine-tuning diffusion models who want to understand what's happening in the denoising loop beyond the high-level description of "we reverse noise."</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">G3</span>
+          <span class="card-name">The Illustrated Stable Diffusion</span>
+          <a href="https://jalammar.github.io/illustrated-stable-diffusion/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-diff">Diffusion</span>
+          <span class="tag tag-viz">Visual Essay</span>
+        </div>
+        <div class="card-tagline">Jay Alammar's visual companion to understanding latent diffusion models.</div>
+        <div class="card-body">
+          Alammar's signature illustrated-essay treatment applied to Stable Diffusion. Covers the VAE encoder/decoder, the CLIP text encoder, the U-Net denoising architecture, and the entire generation pipeline — all through step-by-step diagrams that show tensor shapes and data flow explicitly.
+          <br/><br/>
+          <strong>How to use it:</strong> Read this before using the Diffusion Explainer — it gives you the vocabulary (latent space, timestep conditioning, cross-attention for text) that makes the interactive tool significantly more useful.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Engineers who want to understand latent diffusion models well enough to fine-tune, prompt-engineer, or extend them — not just use them as black-box APIs.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 5 — DISTILL.PUB DEEP DIVES
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-badge">📐 Distill.pub</div>
+      <div class="section-title">5 Must-Read Interactive Research Articles</div>
+    </div>
+    <p class="section-desc">Distill.pub is the gold standard for interactive ML research writing. Peer-reviewed, interactive, and built by the same researchers who created the models being explained. Every article below is worth your full attention.</p>
+    <div class="divider"></div>
+    <div class="resource-grid">
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">D1</span>
+          <span class="card-name">How to Use t-SNE Effectively</span>
+          <a href="https://distill.pub/2016/misread-tsne/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-math">Dimensionality Reduction</span>
+          <span class="tag tag-viz">Interactive</span>
+        </div>
+        <div class="card-tagline">Kills a dozen common t-SNE misconceptions with live sliders.</div>
+        <div class="card-body">Drag the perplexity and iteration sliders and watch how t-SNE plots change — including cases where the clusters it shows are completely meaningless. This article is essential for anyone who has ever interpreted a t-SNE plot in a paper or presentation and assumed the clusters meant something structural.</div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Data scientists and ML engineers who regularly use t-SNE or UMAP for embedding visualization and want to avoid the common misinterpretations that pollute ML papers.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">D2</span>
+          <span class="card-name">Why Momentum Really Works</span>
+          <a href="https://distill.pub/2017/momentum/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-math">Optimization</span>
+          <span class="tag tag-viz">Interactive</span>
+        </div>
+        <div class="card-tagline">The intuition for SGD, momentum, and Adam — on interactive loss landscapes.</div>
+        <div class="card-body">Watch gradient descent with and without momentum navigate 3D loss surfaces interactively. This article builds deep intuition for why adaptive optimizers exist, what momentum actually does to gradient updates geometrically, and why saddle points are more problematic than local minima in high-dimensional spaces.</div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Engineers who choose between SGD, Adam, AdamW, and RMSprop by instinct rather than understanding — this article replaces instinct with genuine mechanistic understanding.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">D3</span>
+          <span class="card-name">Attention and Augmented RNNs</span>
+          <a href="https://distill.pub/2016/augmented-rnns/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-llm">Attention</span>
+          <span class="tag tag-viz">Visual Essay</span>
+        </div>
+        <div class="card-tagline">The foundational visual overview of attention — written before transformers took over.</div>
+        <div class="card-body">Chris Olah and Shan Carter's visual overview of the attention mechanism, Neural Turing Machines, memory networks, and differentiable programming — written in 2016. Reading this gives you the historical context that makes modern transformer attention feel like a natural evolution rather than a mysterious invention.</div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Understanding where the attention mechanism came from and why it was designed the way it was — giving you deeper context for every transformer-based architecture decision.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">D4</span>
+          <span class="card-name">Visualizing Neural Network Loss Landscapes</span>
+          <a href="https://distill.pub/2016/misread-tsne/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-nn">Neural Nets</span>
+          <span class="tag tag-math">Optimization</span>
+        </div>
+        <div class="card-tagline">What does the loss surface of a deep network actually look like?</div>
+        <div class="card-body">An interactive exploration of linear dimensionality reduction applied to neural network loss landscapes — showing how shallow vs deep networks and different architectural choices create qualitatively different optimization terrains. Reframes "why does this network train better" into a geometric question you can see.</div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">ML engineers debugging training instability, choosing architectures, or trying to build intuition for why batch size, learning rate, and depth interact the way they do.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">D5</span>
+          <span class="card-name">Distill.pub — Full Archive</span>
+          <a href="https://distill.pub/" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-viz">Research Journal</span>
+          <span class="tag tag-nn">All Topics</span>
+        </div>
+        <div class="card-tagline">The complete journal — 40+ peer-reviewed interactive ML articles.</div>
+        <div class="card-body">Distill is on hiatus since 2021 but the archive is timeless. Every article is interactive, peer-reviewed, and written by researchers at Anthropic, Google Brain, OpenAI, and leading universities. The circuits thread, feature visualization, and neural network interpretability articles are landmark pieces for anyone serious about understanding deep learning beyond the API level.</div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Bookmark this and return to it whenever you hit a concept that still feels like magic. There's a Distill article for almost every foundational concept in modern deep learning.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 6 — GITHUB REPOS
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-badge">⎇ GitHub</div>
+      <div class="section-title">5 Repos to Star Right Now</div>
+    </div>
+    <p class="section-desc">These are the repos you bookmark and return to constantly — not one-time reads. The ML-Tokyo collection alone will give you weeks of exploration. The Poloclub repos are worth studying as codebases, not just tools.</p>
+    <div class="divider"></div>
+    <div class="resource-grid">
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">R1</span>
+          <span class="card-name">ML-Tokyo / Interactive_Tools</span>
+          <a href="https://github.com/Machine-Learning-Tokyo/Interactive_Tools" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-repo">Curated List</span>
+          <span class="tag tag-viz">50+ Tools</span>
+        </div>
+        <div class="card-tagline">The master list — 50+ interactive ML/DL/math visualization tools, organized by category.</div>
+        <div class="card-body">
+          The most comprehensive curated collection of interactive ML tools on GitHub. Organized by category: neural networks, transformers, GANs, NLP models, probability, optimization, and more. Updated by the community. If a concept has an interactive visualization somewhere on the internet, this list likely links to it.
+          <br/><br/>
+          <strong>How to use it:</strong> Star it, then browse by category whenever you hit a concept you're stuck on. Treat it as a living index, not a reading list to complete linearly.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">The permanent bookmark every AI engineer should have. When you encounter a concept that isn't clicking, check here before spending 3 hours reading a textbook chapter.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">R2</span>
+          <span class="card-name">poloclub / transformer-explainer</span>
+          <a href="https://github.com/poloclub/transformer-explainer" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-llm">LLM</span>
+          <span class="tag tag-repo">Open Source</span>
+        </div>
+        <div class="card-tagline">The full source for Transformer Explainer — Svelte + D3 + ONNX Runtime.</div>
+        <div class="card-body">
+          The open-source codebase behind Transformer Explainer. Built with Svelte and D3.js, running GPT-2 via ONNX Runtime in the browser. Worth studying as a codebase if you want to build your own ML visualizations — the architecture shows how to tie live model inference to interactive D3 visuals without a backend.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Content creators and educators who want to build their own interactive ML visualizations — this is the best open-source template for the pattern.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">R3</span>
+          <span class="card-name">poloclub / cnn-explainer</span>
+          <a href="https://github.com/poloclub/cnn-explainer" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-cnn">CNN</span>
+          <span class="tag tag-repo">Open Source</span>
+        </div>
+        <div class="card-tagline">Plug in your own CNN model and image classes. Fully customizable.</div>
+        <div class="card-body">
+          Open-source Svelte + D3 codebase for CNN Explainer with documented instructions for replacing TinyVGG with your own model and your own image classes. An IEEE Transactions on Visualization and Computer Graphics paper — the architecture is research-quality, not just a demo.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Vision engineers who want to visualize their own CNN architectures — the model-swap instructions make this genuinely useful beyond the default demo.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">R4</span>
+          <span class="card-name">helblazer811 / ManimML</span>
+          <a href="https://github.com/helblazer811/ManimML" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-repo">Python Library</span>
+          <span class="tag tag-viz">Animation</span>
+        </div>
+        <div class="card-tagline">Create 3Blue1Brown-style ML animations with Python — CNNs, VAEs, attention, and more.</div>
+        <div class="card-body">
+          A Python library built on top of Manim (the animation engine Grant Sanderson uses for 3Blue1Brown) specifically for ML concept animation. Pre-built scene components for neural networks, CNNs, attention mechanisms, VAEs, and custom architectures. Generate publication-quality or YouTube-quality animations from Python code.
+          <br/><br/>
+          <strong>How to use it:</strong> Install via pip. Start with the example scenes in the repo. This is the tool for creating animated ML diagrams for talks, courses, or YouTube — not for interactive exploration.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">AI content creators, researchers preparing conference talks, and educators who want to produce animated explanations of ML architectures without learning a full animation tool from scratch.</div>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-top">
+          <span class="card-num">R5</span>
+          <span class="card-name">poloclub / ganlab</span>
+          <a href="https://github.com/poloclub/ganlab" target="_blank" class="card-link-btn">→ OPEN</a>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-gan">GAN</span>
+          <span class="tag tag-repo">Open Source</span>
+        </div>
+        <div class="card-tagline">Full source for GAN Lab — extend it for your own distribution or architecture.</div>
+        <div class="card-body">
+          Open-source TensorFlow.js + D3.js codebase behind GAN Lab. The architecture is clean enough to extend — you can swap in different generator/discriminator designs or replace the 2D distribution with your own to build custom GAN training visualizations.
+        </div>
+        <div class="card-use-case">
+          <div class="use-label">// Best For</div>
+          <div class="use-text">Researchers or educators who want to build custom GAN training visualizations for specific distribution types or architecture variants beyond the defaults in the hosted tool.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 7 — CREATORS TO FOLLOW
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-badge">🧠 Creators</div>
+      <div class="section-title">4 Creators Who Make ML Concepts Click</div>
+    </div>
+    <p class="section-desc">Follow these people, not courses. They consistently produce the clearest, deepest, most visual explanations of ML concepts in the world. One post a week from each of them is worth more than most certifications.</p>
+    <div class="divider"></div>
+    <div class="people-grid">
+
+      <div class="person-card">
+        <div class="person-name">Jay Alammar</div>
+        <div class="person-handle">@jalammar</div>
+        <div class="person-bio">Creator of the Illustrated Transformer, Illustrated GPT-2, and the Illustrated BERT — the most-read visual ML essays on the internet. His custom animated diagrams have been used in Stanford, MIT, CMU, and Harvard courses. Every post is a deep dive with publication-quality visuals.</div>
+        <a href="https://jalammar.github.io/" target="_blank" class="person-link">→ jalammar.github.io</a>
+      </div>
+
+      <div class="person-card">
+        <div class="person-name">Andrej Karpathy</div>
+        <div class="person-handle">@karpathy</div>
+        <div class="person-bio">Former Director of AI at Tesla, founding member at OpenAI. His "Neural Networks: Zero to Hero" YouTube series (building GPT from scratch in numpy/PyTorch) is the best practical deep learning curriculum available. Pairs perfectly with the interactive visualization tools in this guide.</div>
+        <a href="https://karpathy.ai/" target="_blank" class="person-link">→ karpathy.ai</a>
+      </div>
+
+      <div class="person-card">
+        <div class="person-name">Chris Olah</div>
+        <div class="person-handle">@ch402</div>
+        <div class="person-bio">Co-founder of Anthropic. Creator of Distill.pub, the feature visualization and circuits research lines, and the concept of mechanistic interpretability. His blog (colah.github.io) has foundational visual articles on LSTMs, attention, topology, and neural network representations that are still the best introductions to those topics.</div>
+        <a href="https://colah.github.io/" target="_blank" class="person-link">→ colah.github.io</a>
+      </div>
+
+      <div class="person-card">
+        <div class="person-name">Grant Sanderson (3Blue1Brown)</div>
+        <div class="person-handle">@3blue1brown</div>
+        <div class="person-bio">The creator of Manim and the most-watched mathematical visualization channel on YouTube. His series on neural networks, linear algebra, and calculus provides the mathematical foundations that make all the other resources in this guide make more sense. Watch the neural network playlist before anything else if your linear algebra is rusty.</div>
+        <a href="https://www.3blue1brown.com/" target="_blank" class="person-link">→ 3blue1brown.com</a>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /.page-wrap -->
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<div class="footer">
+  <div class="footer-handle">@_alaap_dhall_</div>
+  <div class="footer-sub">ML · Deep Learning · Visual Education</div>
+</div>
+
+</body>
+</html>
