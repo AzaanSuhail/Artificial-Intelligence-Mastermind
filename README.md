@@ -28,7 +28,7 @@
 - [🗺️ AI Roadmap](#️-ai-roadmap)
 - [🐍 Python for AI](#-python-for-ai)
 - [➗ Mathematics for AI](#-mathematics-for-ai)
-- [📊 Statistics & Probability](#-statistics--probability)
+- [📊 Statistics &amp; Probability](#-statistics--probability)
 - [🧹 Data Science](#-data-science)
 - [🤖 Machine Learning](#-machine-learning)
 - [🧠 Deep Learning](#-deep-learning)
@@ -36,7 +36,7 @@
 - [💬 NLP](#-nlp)
 - [✨ Generative AI](#-generative-ai)
 - [⚙️ MLOps](#️-mlops)
-- [☁️ Cloud & Deployment](#️-cloud--deployment)
+- [☁️ Cloud &amp; Deployment](#️-cloud--deployment)
 - [🧪 Projects](#-projects)
 - [🧠 Interview Preparation](#-interview-preparation)
 - [📚 Best Resources](#-best-resources)
@@ -66,13 +66,13 @@ Artificial Intelligence Mastermind is a **complete structured roadmap** for mast
 
 This repository focuses on:
 
-✅ Practical learning  
-✅ Industry-ready skills  
-✅ Real-world projects  
-✅ Interview preparation  
-✅ Research understanding  
-✅ Scalable AI systems  
-✅ End-to-end deployment  
+✅ Practical learning
+✅ Industry-ready skills
+✅ Real-world projects
+✅ Interview preparation
+✅ Research understanding
+✅ Scalable AI systems
+✅ End-to-end deployment
 
 ---
 
@@ -161,6 +161,7 @@ Production AI Engineer
 ## 📌 Topics
 
 ### Linear Algebra
+
 - Vectors
 - Matrices
 - Dot Product
@@ -169,6 +170,7 @@ Production AI Engineer
 - Tensor Operations
 
 ### Calculus
+
 - Derivatives
 - Partial Derivatives
 - Gradients
@@ -176,12 +178,14 @@ Production AI Engineer
 - Optimization
 
 ### Probability
+
 - Bayes Theorem
 - Conditional Probability
 - Random Variables
 - Distributions
 
 ### Optimization
+
 - Gradient Descent
 - Cost Functions
 - Convex Optimization
@@ -241,14 +245,17 @@ Production AI Engineer
 ## 📌 Topics
 
 ### Supervised Learning
+
 - Regression
 - Classification
 
 ### Unsupervised Learning
+
 - Clustering
 - Dimensionality Reduction
 
 ### Algorithms
+
 - Linear Regression
 - Logistic Regression
 - Decision Trees
@@ -641,15 +648,15 @@ Scale Systems
 
 # 🏆 Recommended Tech Stack
 
-| Category | Technologies |
-|---|---|
-| Programming | Python |
+| Category      | Technologies        |
+| ------------- | ------------------- |
+| Programming   | Python              |
 | ML Frameworks | TensorFlow, PyTorch |
-| Backend | FastAPI, Flask |
-| Databases | PostgreSQL, MongoDB |
-| Vector DB | Pinecone, ChromaDB |
-| Deployment | Docker, Kubernetes |
-| Cloud | AWS, Azure, GCP |
+| Backend       | FastAPI, Flask      |
+| Databases     | PostgreSQL, MongoDB |
+| Vector DB     | Pinecone, ChromaDB  |
+| Deployment    | Docker, Kubernetes  |
+| Cloud         | AWS, Azure, GCP     |
 
 ---
 
@@ -678,17 +685,13 @@ Scale Systems
 
 If this repository helps you:
 
-🌟 Star the Repository  
-🍴 Fork the Repository  
-📢 Share with Others  
+🌟 Star the Repository
+🍴 Fork the Repository
+📢 Share with Others
 
 ---
 
-# 📜 License
 
-Licensed under the MIT License.
-
----
 
 # 👨‍💻 Maintainer
 
