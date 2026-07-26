@@ -130,20 +130,6 @@ Imagine you’re at a restaurant kiosk:
 ---
 
 
-
-### 📚 8. Official & Readable Resources 🔗
-
-Here are the  **best sources to learn Conditional Chains** :
-
-1. **LangChain Docs – RunnableBranch (Conditional Logic):**
-   🔗 [https://python.langchain.com/docs/expression_language/how_to/branching/](https://python.langchain.com/docs/expression_language/how_to/branching/)
-2. **LangChain Docs – Chains Overview:**
-   🔗 [https://python.langchain.com/docs/modules/chains/](https://python.langchain.com/docs/modules/chains/)
-3. **Runnable Interface Reference (Advanced Routing):**
-   🔗 [https://python.langchain.com/docs/expression_language/interface/](https://python.langchain.com/docs/expression_language/interface/)
-
----
-
 ### ✅ 8. Summary
 
 * **Conditional Chain** = branching logic in your chain workflow

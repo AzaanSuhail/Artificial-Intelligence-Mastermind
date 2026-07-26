@@ -192,18 +192,7 @@ This design makes it easy to:
 
 ---
 
-### 📚 9. References (Official Docs)
 
-For deep learning, check these 🔗
-
-1. **LangChain Chains Overview:**
-   [https://python.langchain.com/docs/modules/chains/](https://python.langchain.com/docs/modules/chains/)
-2. **LLMChain Docs:**
-   [https://python.langchain.com/docs/modules/chains/foundational/llm_chain](https://python.langchain.com/docs/modules/chains/foundational/llm_chain)
-3. **Sequential Chains:**
-   [https://python.langchain.com/docs/modules/chains/foundational/sequential_chains](https://python.langchain.com/docs/modules/chains/foundational/sequential_chains)
-
----
 
 ### ⚡ 10. Summary
 
